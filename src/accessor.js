@@ -29,7 +29,7 @@ var Accessor = function(config, single, plural){
 
     show: function(id){
       return new Promise(function(fufill, reject){
-        zdrequest.get('/' + plural + '/' + id + '.json').then(function(data){
+        zdrequest.get('/' + plural + '/' + id + '.json?include=comment_count').then(function(data){
           fufill(data[single])
         }).catch(function(err){
           reject(err)
